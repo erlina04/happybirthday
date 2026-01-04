@@ -1,0 +1,822 @@
+/* ===== Romantic Scrapbook CSS - Cream & Navy Aesthetic ===== */
+
+:root {
+    --cream: #faf6f1;
+    --cream-dark: #f0ebe3;
+    --navy: #2c3e50;
+    --navy-light: #34495e;
+    --navy-soft: #5d6d7e;
+    --accent-rose: #d4a5a5;
+    --accent-peach: #e8c5b5;
+    --accent-sage: #b8c9c2;
+    --text-dark: #2c2c2c;
+    --text-light: #666;
+    --shadow: rgba(0, 0, 0, 0.15);
+    --shadow-soft: rgba(0, 0, 0, 0.08);
+    
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    --transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== Paper Texture Overlay ===== */
+.paper-texture {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.05) 2px,
+            rgba(255, 255, 255, 0.05) 4px
+        );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+}
+
+/* ===== Cover Page ===== */
+.cover-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cover-page::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--accent-peach) 0%, transparent 70%);
+    opacity: 0.2;
+    border-radius: 50%;
+}
+
+.cover-page::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--accent-sage) 0%, transparent 70%);
+    opacity: 0.15;
+    border-radius: 50%;
+}
+
+.cover-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+    max-width: 800px;
+}
+
+.decorative-corner {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--navy);
+    opacity: 0.3;
+}
+
+.decorative-corner.top-left {
+    top: 2rem;
+    left: 2rem;
+    border-right: none;
+    border-bottom: none;
+}
+
+.decorative-corner.top-right {
+    top: 2rem;
+    right: 2rem;
+    border-left: none;
+    border-bottom: none;
+}
+
+.decorative-corner.bottom-left {
+    bottom: 2rem;
+    left: 2rem;
+    border-right: none;
+    border-top: none;
+}
+
+.decorative-corner.bottom-right {
+    bottom: 2rem;
+    right: 2rem;
+    border-left: none;
+    border-top: none;
+}
+
+.cover-title {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    letter-spacing: 0.02em;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cover-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--navy-soft);
+    font-style: italic;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.4s ease-out;
+}
+
+.cover-ornament {
+    font-size: 3rem;
+    color: var(--accent-rose);
+    margin: 2rem 0;
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.scroll-hint {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4rem;
+    animation: fadeIn 2s ease-out, bounce 2s ease-in-out infinite;
+}
+
+/* ===== Content Sections ===== */
+section {
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* ===== Tape Effect ===== */
+.tape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px var(--shadow-soft);
+    z-index: 10;
+}
+
+.tape-1 {
+    width: 150px;
+    height: 40px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+}
+
+.tape-2 {
+    width: 100px;
+    height: 30px;
+    top: -15px;
+    right: 20px;
+    transform: rotate(5deg);
+}
+
+.tape-3 {
+    width: 120px;
+    height: 35px;
+    top: -18px;
+    left: 30px;
+    transform: rotate(-3deg);
+}
+
+.tape-4 {
+    width: 180px;
+    height: 45px;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(1deg);
+}
+
+.tape-5 {
+    width: 100px;
+    height: 30px;
+    top: 20px;
+    right: 40px;
+    transform: rotate(-4deg);
+}
+
+.tape-6 {
+    width: 130px;
+    height: 35px;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+}
+
+.tape-mini {
+    width: 60px;
+    height: 20px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+}
+
+/* ===== Introduction Section ===== */
+.intro-section {
+    background: var(--cream-dark);
+}
+
+.intro-card {
+    background: white;
+    padding: 4rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px var(--shadow-soft);
+    position: relative;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--navy);
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-dark);
+}
+
+.intro-text p {
+    margin-bottom: 1.5rem;
+}
+
+.highlight-paragraph {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--navy);
+    font-family: var(--font-display);
+}
+
+.love-text {
+    text-align: center;
+    font-size: 2rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--accent-rose);
+    margin-top: 2rem;
+    letter-spacing: 0.1em;
+}
+
+/* ===== Memory Sections ===== */
+.memory-section {
+    background: var(--cream);
+}
+
+.memory-section.alt {
+    background: var(--cream-dark);
+}
+
+.photo-grid {
+    display: grid;
+    gap: 3rem;
+    align-items: center;
+}
+
+.grid-style-1 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-style-2 {
+    grid-template-columns: 1.2fr 1fr;
+}
+
+/* ===== Photo Frames ===== */
+.photo-frame {
+    position: relative;
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 8px 24px var(--shadow);
+    transform: rotate(-2deg);
+    transition: var(--transition);
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+    box-shadow: 0 12px 32px var(--shadow);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--cream-dark);
+}
+
+.photo-caption {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.caption-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.polaroid-note {
+    margin-top: 1rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
+/* ===== Memory Text ===== */
+.memory-text {
+    position: relative;
+    padding: 2rem;
+}
+
+.memory-text h3 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.memory-text p {
+    margin-bottom: 1.2rem;
+    line-height: 1.9;
+    color: var(--text-dark);
+}
+
+/* ===== Doodles ===== */
+.doodle {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.3;
+    animation: float 3s ease-in-out infinite;
+}
+
+.heart-doodle {
+    top: 0;
+    right: 0;
+    color: var(--accent-rose);
+}
+
+.heart-doodle::before {
+    content: '♥';
+}
+
+.star-doodle {
+    top: 20px;
+    left: -20px;
+    color: var(--accent-peach);
+}
+
+.star-doodle::before {
+    content: '★';
+}
+
+.coffee-doodle {
+    bottom: 20px;
+    right: 20px;
+    color: var(--navy-soft);
+}
+
+.coffee-doodle::before {
+    content: '☕';
+}
+
+/* ===== Album Section ===== */
+.album-section {
+    background: white;
+    padding: 8rem 2rem;
+}
+
+.album-title {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.photo-collage {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.collage-item {
+    position: relative;
+    background: white;
+    padding: 1rem;
+    box-shadow: 0 6px 20px var(--shadow-soft);
+    transform: rotate(0deg);
+    transition: var(--transition);
+}
+
+.collage-item:nth-child(odd) {
+    transform: rotate(-3deg);
+}
+
+.collage-item:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.collage-item:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 12px 32px var(--shadow);
+    z-index: 10;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.sticker {
+    position: absolute;
+    font-size: 2rem;
+    z-index: 5;
+}
+
+.sticker-heart {
+    top: -10px;
+    right: -10px;
+    color: var(--accent-rose);
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.sticker-star {
+    top: -15px;
+    left: -15px;
+    color: var(--accent-peach);
+    animation: rotate 4s linear infinite;
+}
+
+/* ===== Special Moment Card ===== */
+.special-moment-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    position: relative;
+}
+
+.moment-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px var(--shadow-soft);
+}
+
+.moment-text {
+    padding: 1rem;
+}
+
+.handwritten-note {
+    background: var(--accent-peach);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px var(--shadow-soft);
+    transform: rotate(-1deg);
+}
+
+.handwritten-note p {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--navy);
+    margin: 0;
+}
+
+.decorative-line {
+    width: 100px;
+    height: 2px;
+    background: var(--navy);
+    margin: 2rem 0;
+    opacity: 0.3;
+}
+
+.cute-list {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+}
+
+.cute-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-dark);
+    font-style: italic;
+}
+
+.cute-list li::before {
+    content: '♡';
+    position: absolute;
+    left: 0;
+    color: var(--accent-rose);
+    font-size: 1.2rem;
+}
+
+/* ===== Dual Photo Layout ===== */
+.dual-photo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.polaroid-stack {
+    position: relative;
+}
+
+.polaroid {
+    background: white;
+    padding: 1rem;
+    padding-bottom: 3rem;
+    box-shadow: 0 8px 24px var(--shadow);
+    transform: rotate(-5deg);
+    position: relative;
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.polaroid-caption {
+    text-align: center;
+    margin-top: 1rem;
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.text-side h3 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.quote-box {
+    background: var(--accent-sage);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid var(--navy);
+    border-radius: 4px;
+    transform: rotate(-1deg);
+}
+
+.quote-box p {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--navy);
+    margin: 0;
+}
+
+/* ===== Closing Section ===== */
+.closing-section {
+    background: linear-gradient(135deg, var(--cream-dark) 0%, var(--cream) 100%);
+    padding: 8rem 2rem;
+}
+
+.closing-card {
+    background: white;
+    padding: 4rem;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px var(--shadow);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.decorative-hearts {
+    font-size: 2rem;
+    color: var(--accent-rose);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.decorative-hearts span {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.decorative-hearts span:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.decorative-hearts span:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.closing-card h2 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--navy);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.closing-text p {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+}
+
+.signature {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--cream-dark);
+}
+
+.with-love {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.your-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--accent-rose);
+    font-weight: 700;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 968px) {
+    .cover-title {
+        font-size: 3.5rem;
+    }
+    
+    .photo-grid,
+    .grid-style-1,
+    .grid-style-2,
+    .photo-collage,
+    .special-moment-card,
+    .dual-photo-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .decorative-corner {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .album-title {
+        font-size: 2.8rem;
+    }
+    
+    .collage-item img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 640px) {
+    section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .cover-title {
+        font-size: 2.5rem;
+    }
+    
+    .cover-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .intro-card,
+    .closing-card {
+        padding: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .memory-text h3 {
+        font-size: 2rem;
+    }
+    
+    .photo-collage {
+        grid-template-columns: 1fr;
+    }
+    
+    .collage-item img {
+        height: 300px;
+    }
+}
